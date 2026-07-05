@@ -1,0 +1,54 @@
+{
+  "name": "social-proof-aggregator-skill",
+  "version": "1.0.0",
+  "description": "Aggregate, score, and format social proof signals (reviews, ratings, sales counts, testimonials) into display-ready widgets and trust badges for product pages.",
+  "author": "alphaparkinc",
+  "category": "conversion",
+  "tags": [
+    "social-proof",
+    "reviews",
+    "trust",
+    "conversion",
+    "UX"
+  ],
+  "inputs": {
+    "product_data": {
+      "type": "object",
+      "description": "Product signals: total_reviews, avg_rating, units_sold, repeat_buyers_pct, verified_purchase_pct."
+    },
+    "reviews": {
+      "type": "array",
+      "description": "Recent reviews: [{rating, text, verified, date, helpful_votes}]."
+    },
+    "display_format": {
+      "type": "string",
+      "enum": [
+        "widget",
+        "badge",
+        "summary",
+        "all"
+      ],
+      "description": "Output format."
+    }
+  },
+  "outputs": {
+    "trust_score": {
+      "type": "number",
+      "description": "Composite trust score 0-100."
+    },
+    "widget": {
+      "type": "object",
+      "description": "Ready-to-display review widget data."
+    },
+    "trust_badges": {
+      "type": "array",
+      "description": "Trust badge labels to display."
+    },
+    "featured_reviews": {
+      "type": "array",
+      "description": "Top reviews to feature on the product page."
+    }
+  },
+  "entrypoint": "client.py",
+  "example": "example_usage.py"
+}
